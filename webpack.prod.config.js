@@ -30,4 +30,4 @@ const prodConfig = merge(baseConfig, {
     ]
 });
 
-module.exports = prodConfig
+module.exports = prodConfig;

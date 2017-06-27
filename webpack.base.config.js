@@ -15,10 +15,8 @@ module.exports = {
     },
     resolve: {
         extensions: ['.js', '.jsx']
-        //root: APP_PATH
     },
     module: {
-        // 配置preLoaders, 将eslint添加进去
         loaders: [
             {
                 test: /\.jsx?$/,

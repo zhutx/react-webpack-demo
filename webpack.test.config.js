@@ -7,7 +7,6 @@ const baseConfig = require('./webpack.base.config.js');
 const ROOT_PATH = path.resolve(__dirname);
 const SRC_PATH = path.resolve(ROOT_PATH, 'src');
 const testConfig = merge(baseConfig, {
-    // 配置plugin
     plugins: [
         new webpack.DefinePlugin({
             'process.env.API_ENV': '"test"'
@@ -31,4 +30,4 @@ const testConfig = merge(baseConfig, {
     ]
 });
 
-module.exports = testConfig
+module.exports = testConfig;
