@@ -14,7 +14,7 @@ module.exports = {
         filename: 'js/[name].[hash:5].js'
     },
     resolve: {
-        extensions: ['.js', '.jsx']
+        extensions: ['.js', '.jsx', '.json', '.scss', '.css']
     },
     module: {
         loaders: [
@@ -28,7 +28,46 @@ module.exports = {
                 loaders: ['babel-loader'],
                 include: SRC_PATH,
                 exclude: path.resolve(ROOT_PATH, 'node_modules')
+            }, {
+                test: /\.css$/,
+                loader: 'style-loader!css-loader',
+            }, {
+                test: /\.scss$/,
+                use: [
+                    'style-loader',
+                    {
+                        loader: 'css-loader',
+                        options: {
+                            modules: true,
+                            localIdentName: '[name]__[local]-[hash:5]',
+                            importLoaders: 3,
+                        },
+                    },
+                    'sass-loader',
+                ],
+            }, {
+                test: /\.(png|jpg|gif|svg)$/,
+                use: [
+                    {
+                        loader: 'url-loader',
+                        options: {
+                            limit: 8192,
+                            name: 'images/[name].[hash:5].[ext]',
+                        },
+                    },
+                ],
+            }, {
+                test: /\.json$/,
+                loader: 'json-loader',
             }
         ]
-    }
+    },
+    plugins: [
+        new webpack.DllReferencePlugin({
+            manifest: require(path.resolve(__dirname, 'lib', 'ReactStuff-manifest.json')),
+        }),
+        new webpack.DllReferencePlugin({
+            manifest: require(path.resolve(__dirname, 'lib', 'AntdStuff-manifest.json')),
+        })
+    ]
 };
