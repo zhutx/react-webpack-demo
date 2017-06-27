@@ -44,9 +44,24 @@ module.exports = {
     },
     // 配置plugin
     plugins: [
+        new webpack.DefinePlugin({
+            'process.env.API_ENV': '"development"'
+        }),
+        new webpack.optimize.UglifyJsPlugin({
+            sourceMap: true,
+        }),
         new HtmlwebpackPlugin({
             title: 'react-webpack-demo',
-            template: path.resolve(SRC_PATH, 'templates', 'index.html')
+            filename: 'index.html',
+            template: path.resolve(SRC_PATH, 'templates', 'index.html'),
+            minify: {
+                removeComments: true,
+                collapseWhitespace: true,
+                removeRedundantAttributes: true,
+                removeScriptTypeAttributes: true,
+                removeStyleLinkTypeAttributes: true,
+                removeAttributeQuotes: true
+            }
         })
     ]
 };
