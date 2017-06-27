@@ -9,7 +9,7 @@ moment.locale('zh-cn');
 function Index() {
     return (
       <div className="container">
-        <h1>Hello React!</h1>
+        <h1>Antd DatePicker!</h1>
         <DatePicker defaultValue={moment('2015-01-01', 'YYYY-MM-DD')} />
       </div>
     );

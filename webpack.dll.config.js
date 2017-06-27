@@ -6,13 +6,15 @@ module.exports = {
     ReactStuff: [
       'react',
       'react-dom',
-      'react-router',
-      'redux',
       'react-redux',
+      'react-router',
+      'react-router-redux',
+      'redux',
       'redux-actions',
     ],
     AntdStuff: [
-      'antd'
+      'antd',
+      'moment',
     ]
   },
   output: {
