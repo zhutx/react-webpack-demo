@@ -4,8 +4,10 @@
   "description": "",
   "main": "index.jsx",
   "scripts": {
-    "build": "rimraf dist && webpack",
-    "dev": "webpack-dev-server --hot"
+    "start": "webpack-dev-server --hot --config webpack.dev.config.js",
+    "build:dev": "rimraf dist && webpack --progress --config webpack.dev.config.js",
+    "build:test": "rimraf dist && webpack --progress --config webpack.test.config.js",
+    "build": "rimraf dist && webpack --progress --config webpack.prod.config.js"
   },
   "keywords": [],
   "author": "",
