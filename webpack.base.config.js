@@ -64,10 +64,8 @@ module.exports = {
     },
     plugins: [
         new webpack.DllReferencePlugin({
-            manifest: require(path.resolve(__dirname, 'lib', 'ReactStuff-manifest.json')),
-        }),
-        new webpack.DllReferencePlugin({
-            manifest: require(path.resolve(__dirname, 'lib', 'AntdStuff-manifest.json')),
+            manifest: require(path.resolve(ROOT_PATH, 'lib', 'manifest.json')),
+            context: ROOT_PATH,
         })
     ]
 };
