@@ -6,9 +6,9 @@
   "scripts": {
     "dll": "rimraf ./lib && webpack --config webpack.dll.config.js",
     "start": "webpack-dev-server --hot --progress --config webpack.dev.config.js",
-    "build:dev": "rimraf dist && webpack --progress --config webpack.dev.config.js",
-    "build:test": "rimraf dist && webpack --progress --config webpack.test.config.js",
-    "build": "rimraf dist && webpack --progress --config webpack.prod.config.js"
+    "build:dev": "rimraf build && webpack --progress --config webpack.dev.config.js",
+    "build:test": "rimraf build && webpack --progress --config webpack.test.config.js",
+    "build:prod": "rimraf build && webpack --progress --config webpack.prod.config.js"
   },
   "keywords": [],
   "author": "",
